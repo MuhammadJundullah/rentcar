@@ -1,19 +1,15 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/home";
-import Notfound from "./components/Notfound";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+import "./App.css";
+import React from "react";
+import Home from "./pages/Home";
+import Notfound from "./components/Notfound";
+import UnitKendaraan from "./pages/UnitKendaraan";
 import "preline/preline";
-// import { IStaticMethods } from "preline/preline";
-
-// declare global {
-//   interface Window {
-//     HSStaticMethods: IStaticMethods;
-//   }
-// }
+import PaketTour from "./pages/PaketTour";
+import ReservasiOnline from "./pages/ReservasiOnline";
 
 function App() {
   return (
@@ -23,9 +19,9 @@ function App() {
         <header>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/Unit-Kendaraan" element={<h1>About</h1>} />
-            <Route path="/Paket-Tour" element={<h1>Services</h1>} />
-            <Route path="/Reservasi-Online" element={<h1>Contact</h1>} /> */}
+            <Route path="/unit-kendaraan" element={<UnitKendaraan />} />
+            <Route path="/paket-tour" element={<PaketTour />} />
+            <Route path="/reservasi-online" element={<ReservasiOnline />} />
             <Route path="/*" element={<Notfound />} />
           </Routes>
         </header>
@@ -38,7 +34,11 @@ function LocationWrapper() {
   const location = useLocation();
 
   useEffect(() => {
-    window.HSStaticMethods.autoInit();
+    if (window.HSStaticMethods) {
+      document.addEventListener("DOMContentLoaded", () => {
+        window.HSStaticMethods.autoInit();
+      });
+    }
   }, [location.pathname]);
 
   return null;
