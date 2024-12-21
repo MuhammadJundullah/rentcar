@@ -114,6 +114,18 @@ function InputTesti() {
                 </div>
 
                 <div>
+                  <label className="sr-only" htmlFor="judul">
+                    Judul
+                  </label>
+                  <input
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    placeholder="Judul"
+                    type="text"
+                    id="judul"
+                  />
+                </div>
+
+                <div>
                   <label className="sr-only" htmlFor="message">
                     Message
                   </label>
@@ -129,7 +141,7 @@ function InputTesti() {
                   <button
                     type="submit"
                     className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto">
-                    Send Enquiry
+                    Kirim Ulasan
                   </button>
                 </div>
               </form>
