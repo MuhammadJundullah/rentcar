@@ -1,7 +1,7 @@
 function Aktivitas() {
   return (
     <div className="bg-gray-100">
-      <div className="mx-20 px-4 py-8 sm:px-6 sm:py-12 lg:px-8 bg-gray-300 rounded-3xl">
+      <div className="lg:mx-20 px-4 py-8 sm:px-6 sm:py-12 lg:px-8 bg-gray-300 lg:rounded-3xl">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
             Aktivitas Kami
@@ -28,7 +28,7 @@ function Aktivitas() {
                 10th Oct 2022{" "}
               </time>
 
-              <a href="#">
+              <a href="/">
                 <h3 class="mt-0.5 text-lg text-gray-900">
                   How to position your furniture for positivity
                 </h3>
@@ -57,7 +57,7 @@ function Aktivitas() {
                 10th Oct 2022{" "}
               </time>
 
-              <a href="#">
+              <a href="/">
                 <h3 class="mt-0.5 text-lg text-gray-900">
                   How to position your furniture for positivity
                 </h3>
@@ -86,7 +86,7 @@ function Aktivitas() {
                 10th Oct 2022{" "}
               </time>
 
-              <a href="#">
+              <a href="/">
                 <h3 class="mt-0.5 text-lg text-gray-900">
                   How to position your furniture for positivity
                 </h3>

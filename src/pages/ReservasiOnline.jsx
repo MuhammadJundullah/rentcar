@@ -1,11 +1,13 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function ReservasiOnline() {
   return (
-    <div>
+    <>
       <Navbar></Navbar>
       <h1>Reservasi Online</h1>
-    </div>
+      <Footer></Footer>
+    </>
   );
 }
 

@@ -1,4 +1,3 @@
-import "../App.css";
 import Armada from "../components/Armada";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -6,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Stats from "../components/Stats";
 import Aktivitas from "../components/Aktivitas";
 import Testimonial from "../components/Testimonial";
+import InputTesti from "../components/InputTesti";
 
 function Home() {
   return (
@@ -16,6 +16,7 @@ function Home() {
       <Armada></Armada>
       <Aktivitas></Aktivitas>
       <Testimonial></Testimonial>
+      <InputTesti></InputTesti>
       <Footer></Footer>
     </>
   );

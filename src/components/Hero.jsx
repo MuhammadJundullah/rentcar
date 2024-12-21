@@ -1,10 +1,19 @@
 function Hero() {
   return (
-    <section className="overflow-hidden bg-[url(https://www.asuransiku.id/support/images/upload-photos/article/artikel3-bisnis-travel-besar.png)] bg-cover bg-top bg-no-repeat">
+    <section className="overflow-hidden relative">
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline>
+        <source src="/media/videoplayback.webm" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="bg-black/50 p-8 md:p-12 lg:px-16 lg:py-40 h-screen py-28 sm:flex justify-around block items-center">
-        <div className="text-center ltr:sm:text-left rtl:sm:text-right">
-          <p className="text-start font-extrabold text-gray-300">
-            Puzzalarental
+        <div className="text-center ltr:sm:text-left rtl:sm:text-right z-10">
+          <p className="text-start text-4xl font-extrabold text-purple-600">
+            PUZALLA RENT CAR
           </p>
           <h2 className="max-w-lg text-start text-2xl font-bold text-white sm:text-3xl md:text-5xl">
             Rent Car, Tour and Travel on Sumatera Utara

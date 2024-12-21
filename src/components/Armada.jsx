@@ -16,14 +16,14 @@ function Armada() {
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 py-20 overflow-x-auto">
         <article className="flex bg-white transition hover:shadow-xl">
           <div className="hidden sm:block sm:basis-56">
-            <img alt="mobil" src="/media/alphard.png" className="my-10" />
+            <img alt="mobil" src="/media/innovaReborn.png" className="my-10" />
           </div>
 
           <div className="flex flex-1 flex-col justify-between">
             <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
               <a href="/">
                 <h3 className="font-bold uppercase text-gray-900">
-                  Luxury | Alphard
+                  Luxury | Innova Reborn
                 </h3>
               </a>
 
@@ -70,14 +70,14 @@ function Armada() {
         </article>
         <article className="flex bg-white transition hover:shadow-xl">
           <div className="hidden sm:block sm:basis-56">
-            <img alt="mobil" src="/media/alphard.png" className="my-10" />
+            <img alt="mobil" src="/media/innovaZenix.png" className="my-10" />
           </div>
 
           <div className="flex flex-1 flex-col justify-between">
             <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
               <a href="/">
                 <h3 className="font-bold uppercase text-gray-900">
-                  Luxury | Alphard
+                  Luxury | Innova Zenix
                 </h3>
               </a>
 

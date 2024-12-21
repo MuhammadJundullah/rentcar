@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <header className="fixed z-10 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800">
+    <header className="fixed flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800 z-20">
       <nav className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between">
         <div className="flex items-center justify-between">
           <a
@@ -9,13 +9,13 @@ function Navbar() {
             aria-label="Brand">
             <span className="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white">
               <img className="w-10 h-auto" src="/media/logo.png" alt="" />
-              Puzzalarental
+              PUZALLA RENT CAR
             </span>
           </a>
           <div className="sm:hidden">
             <button
               type="button"
-              className="hs-collapse-toggle relative size-7 flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
+              className="hs-collapse-toggle relative size-7 flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10 z-20"
               id="hs-navbar-example-collapse"
               aria-expanded="false"
               aria-controls="hs-navbar-example"
@@ -60,7 +60,7 @@ function Navbar() {
           aria-labelledby="hs-navbar-example-collapse">
           <div className="flex flex-col gap-10 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
             <a
-              className="font-medium text-blue-500 focus:outline-none"
+              className="font-medium text-gray-600 hover:text-gray-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
               href="/"
               aria-current="page">
               Beranda

@@ -1,7 +1,7 @@
 function Stats() {
   return (
     <div className="bg-gray-100 pt-10">
-      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 lg:pb-16 bg-gray-300 rounded-3xl">
+      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 lg:pb-16 bg-gray-300 lg:rounded-3xl">
         {/* <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
           Trusted by eCommerce Businesses
@@ -24,7 +24,7 @@ function Stats() {
               </p>
             </dt>
 
-            <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl mx-auto py-3">
+            <dd className="text-4xl font-extrabold text-purple-600 md:text-5xl mx-auto py-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -45,7 +45,7 @@ function Stats() {
               </p>
             </dt>
 
-            <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl mx-auto py-3">
+            <dd className="text-4xl font-extrabold text-purple-600 md:text-5xl mx-auto py-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -67,7 +67,7 @@ function Stats() {
               </p>
             </dt>
 
-            <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl mx-auto py-3">
+            <dd className="text-4xl font-extrabold text-purple-600 md:text-5xl mx-auto py-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
@@ -89,7 +89,7 @@ function Stats() {
               </p>
             </dt>
 
-            <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl  mx-auto py-3">
+            <dd className="text-4xl font-extrabold text-purple-600 md:text-5xl  mx-auto py-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"

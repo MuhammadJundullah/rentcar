@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useInView } from "react-intersection-observer"; // Import hook intersection observer
 import { useSpring, animated } from "@react-spring/web";
 
 function Carousel() {
-  const [inView, setInView] = useState(false);
+  // const [inView, setInView] = useState(false);
 
   // Intersection Observer hook untuk mendeteksi elemen yang masuk viewport
   const { ref, inView: isInView } = useInView({
@@ -29,7 +29,7 @@ function Carousel() {
     <div className="hero bg-base-200 min-h-screen relative">
       {/* Video sebagai latar belakang */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        className="absolute top-0 left-0 w-full h-full object-cover "
         src="/media/videoplayback.webm"
         autoPlay
         loop
