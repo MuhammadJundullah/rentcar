@@ -8,9 +8,8 @@ function Aktivitas() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8001/api/get/aktivitas")
+      .get("http://localhost:8000/api/get/aktivitas")
       .then((response) => {
-        console.log(response.data);
         if (response.data.status === "success") {
           setAktivitas(response.data.data);
         }
@@ -46,25 +45,27 @@ function Aktivitas() {
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 py-20 overflow-x-auto">
           {aktivitas.map((item) => (
-            <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+            <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
               <img
                 alt=""
-                src={`http://localhost:8001/storage/${item.foto}`}
-                class="h-56 w-full object-cover"
+                src={`http://localhost:8000/storage/${item.foto}`}
+                className="h-56 w-full object-cover"
               />
 
-              <div class="bg-white p-4 sm:p-6">
-                <time datetime="2022-10-10" class="block text-xs text-gray-500">
+              <div className="bg-white p-4 sm:p-6">
+                <time
+                  dateTime="2022-10-10"
+                  className="block text-xs text-gray-500">
                   {" "}
                   {/* 10th Oct 2022{" "} */}
                   {item.tanggal}
                 </time>
 
                 <a href="/">
-                  <h3 class="mt-0.5 text-lg text-gray-900">{item.judul}</h3>
+                  <h3 className="mt-0.5 text-lg text-gray-900">{item.judul}</h3>
                 </a>
 
-                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
                   {item.isi}
                 </p>
               </div>

@@ -1,3 +1,5 @@
+import { Rating } from "@material-tailwind/react";
+
 function InputTesti() {
   return (
     <div>
@@ -9,10 +11,11 @@ function InputTesti() {
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
               <form action="/" className="space-y-4">
-                <div class="flex gap-0.5">
+                <div className="flex gap-0.5">
                   <div>
+                    <Rating></Rating>
                     <input
-                      class="sr-only peer"
+                      className="sr-only peer"
                       type="radio"
                       id="star1"
                       name="rating"
@@ -20,9 +23,9 @@ function InputTesti() {
                     />
                     <label
                       htmlFor="star1"
-                      class="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400 peer-checked:peer-first:fill-amber-400"
+                      className="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400 peer-checked:peer-first:fill-amber-400"
                       tabIndex="0">
-                      <svg class="h-8 w-8 shrink-0" viewBox="0 0 256 256">
+                      <svg className="h-8 w-8 shrink-0" viewBox="0 0 256 256">
                         <path d="M239.2 97.4A16.4 16.4 0 0 0 224.6 86l-59.4-4.1-22-55.5A16.4 16.4 0 0 0 128 16h0a16.4 16.4 0 0 0-15.2 10.4L90.4 82.2 31.4 86A16.5 16.5 0 0 0 16.8 97.4 16.8 16.8 0 0 0 22 115.5l45.4 38.4L53.9 207a18.5 18.5 0 0 0 7 19.6 18 18 0 0 0 20.1.6l46.9-29.7h.2l50.5 31.9a16.1 16.1 0 0 0 8.7 2.6 16.5 16.5 0 0 0 15.8-20.8l-14.3-58.1L234 115.5A16.8 16.8 0 0 0 239.2 97.4z"></path>
                       </svg>
                     </label>
@@ -30,7 +33,7 @@ function InputTesti() {
 
                   <div>
                     <input
-                      class="sr-only peer"
+                      className="sr-only peer"
                       type="radio"
                       id="star2"
                       name="rating"
@@ -38,9 +41,9 @@ function InputTesti() {
                     />
                     <label
                       htmlFor="star2"
-                      class="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
+                      className="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
                       tabIndex="0">
-                      <svg class="h-8 w-8 shrink-0" viewBox="0 0 256 256">
+                      <svg className="h-8 w-8 shrink-0" viewBox="0 0 256 256">
                         <path d="M239.2 97.4A16.4 16.4 0 0 0 224.6 86l-59.4-4.1-22-55.5A16.4 16.4 0 0 0 128 16h0a16.4 16.4 0 0 0-15.2 10.4L90.4 82.2 31.4 86A16.5 16.5 0 0 0 16.8 97.4 16.8 16.8 0 0 0 22 115.5l45.4 38.4L53.9 207a18.5 18.5 0 0 0 7 19.6 18 18 0 0 0 20.1.6l46.9-29.7h.2l50.5 31.9a16.1 16.1 0 0 0 8.7 2.6 16.5 16.5 0 0 0 15.8-20.8l-14.3-58.1L234 115.5A16.8 16.8 0 0 0 239.2 97.4z"></path>
                       </svg>
                     </label>
@@ -48,7 +51,7 @@ function InputTesti() {
 
                   <div>
                     <input
-                      class="sr-only peer"
+                      className="sr-only peer"
                       type="radio"
                       id="star3"
                       name="rating"
@@ -56,9 +59,9 @@ function InputTesti() {
                     />
                     <label
                       htmlFor="star3"
-                      class="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
+                      className="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
                       tabIndex="0">
-                      <svg class="h-8 w-8 shrink-0" viewBox="0 0 256 256">
+                      <svg className="h-8 w-8 shrink-0" viewBox="0 0 256 256">
                         <path d="M239.2 97.4A16.4 16.4 0 0 0 224.6 86l-59.4-4.1-22-55.5A16.4 16.4 0 0 0 128 16h0a16.4 16.4 0 0 0-15.2 10.4L90.4 82.2 31.4 86A16.5 16.5 0 0 0 16.8 97.4 16.8 16.8 0 0 0 22 115.5l45.4 38.4L53.9 207a18.5 18.5 0 0 0 7 19.6 18 18 0 0 0 20.1.6l46.9-29.7h.2l50.5 31.9a16.1 16.1 0 0 0 8.7 2.6 16.5 16.5 0 0 0 15.8-20.8l-14.3-58.1L234 115.5A16.8 16.8 0 0 0 239.2 97.4z"></path>
                       </svg>
                     </label>
@@ -66,7 +69,7 @@ function InputTesti() {
 
                   <div>
                     <input
-                      class="sr-only peer"
+                      className="sr-only peer"
                       type="radio"
                       id="star4"
                       name="rating"
@@ -74,9 +77,9 @@ function InputTesti() {
                     />
                     <label
                       htmlFor="star4"
-                      class="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
+                      className="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
                       tabIndex="0">
-                      <svg class="h-8 w-8 shrink-0" viewBox="0 0 256 256">
+                      <svg className="h-8 w-8 shrink-0" viewBox="0 0 256 256">
                         <path d="M239.2 97.4A16.4 16.4 0 0 0 224.6 86l-59.4-4.1-22-55.5A16.4 16.4 0 0 0 128 16h0a16.4 16.4 0 0 0-15.2 10.4L90.4 82.2 31.4 86A16.5 16.5 0 0 0 16.8 97.4 16.8 16.8 0 0 0 22 115.5l45.4 38.4L53.9 207a18.5 18.5 0 0 0 7 19.6 18 18 0 0 0 20.1.6l46.9-29.7h.2l50.5 31.9a16.1 16.1 0 0 0 8.7 2.6 16.5 16.5 0 0 0 15.8-20.8l-14.3-58.1L234 115.5A16.8 16.8 0 0 0 239.2 97.4z"></path>
                       </svg>
                     </label>
@@ -84,7 +87,7 @@ function InputTesti() {
 
                   <div>
                     <input
-                      class="sr-only peer"
+                      className="sr-only peer"
                       type="radio"
                       id="star5"
                       name="rating"
@@ -92,9 +95,9 @@ function InputTesti() {
                     />
                     <label
                       htmlFor="star5"
-                      class="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
+                      className="w-full cursor-pointer text-3xl fill-gray-300 peer-checked:fill-amber-400"
                       tabIndex="0">
-                      <svg class="h-8 w-8 shrink-0" viewBox="0 0 256 256">
+                      <svg className="h-8 w-8 shrink-0" viewBox="0 0 256 256">
                         <path d="M239.2 97.4A16.4 16.4 0 0 0 224.6 86l-59.4-4.1-22-55.5A16.4 16.4 0 0 0 128 16h0a16.4 16.4 0 0 0-15.2 10.4L90.4 82.2 31.4 86A16.5 16.5 0 0 0 16.8 97.4 16.8 16.8 0 0 0 22 115.5l45.4 38.4L53.9 207a18.5 18.5 0 0 0 7 19.6 18 18 0 0 0 20.1.6l46.9-29.7h.2l50.5 31.9a16.1 16.1 0 0 0 8.7 2.6 16.5 16.5 0 0 0 15.8-20.8l-14.3-58.1L234 115.5A16.8 16.8 0 0 0 239.2 97.4z"></path>
                       </svg>
                     </label>

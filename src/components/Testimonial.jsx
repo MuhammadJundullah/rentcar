@@ -73,7 +73,6 @@ function Testimonial() {
   return (
     <div>
       <script type="module"></script>
-
       <section className="bg-gray-100">
         <div className="mx-auto  px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
@@ -97,17 +96,16 @@ function Testimonial() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     className="size-5 rtl:rotate-180">
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M15.75 19.5L8.25 12l7.5-7.5"
                     />
                   </svg>
                 </button>
-
                 <button
                   aria-label="Next slide"
                   id="keen-slider-next-desktop"
@@ -120,9 +118,9 @@ function Testimonial() {
                     xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M9 5l7 7-7 7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                     />
                   </svg>
                 </button>
@@ -345,9 +343,9 @@ function Testimonial() {
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M9 5l7 7-7 7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                 />
               </svg>
             </button>
@@ -364,9 +362,9 @@ function Testimonial() {
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M9 5l7 7-7 7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                 />
               </svg>
             </button>

@@ -8,7 +8,7 @@ function ArmadaAll() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8001/api/get/armada")
+      .get("http://localhost:8000/api/get/armada")
       .then((response) => {
         if (response.data.status === "success") {
           setArmada(response.data.data);
@@ -49,7 +49,7 @@ function ArmadaAll() {
               <div className="hidden sm:block sm:basis-56">
                 <img
                   alt={item.nama}
-                  src={`http://localhost:8001/storage/${item.foto}`}
+                  src={`http://localhost:8000/storage/${item.foto}`}
                   className="my-10"
                 />
               </div>
