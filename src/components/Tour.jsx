@@ -1,4 +1,34 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 function Tour() {
+  const [Tour, setTour] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/get/tour")
+      .then((response) => {
+        if (response.data.status === "success") {
+          console.log(response.data.data);
+          setTour(response.data.data);
+        }
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  // Jika data masih loading
+  if (loading) return <p>Loading...</p>;
+
+  // Jika ada error
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div
       className="mx-auto px-4 sm:px-6 py-32 lg:px-8 bg-gray-100"
@@ -19,316 +49,41 @@ function Tour() {
           transportasi Anda.
         </p>
       </div>
-      <div className=" grid lg:grid-cols-4 md:grid-cols-2 gap-10 py-20">
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
+      <d className=" grid lg:grid-cols-4 md:grid-cols-2 gap-10 py-20">
+        {Tour.map((item, index) => (
+          <a
+            key={index}
+            className={`group h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg transition`}
+            style={{
+              backgroundImage: `url('http://localhost:8000/storage/${item.foto}')`,
+            }}
+            href="/reservasi-online">
+            <div className="flex-auto p-4 md:p-6">
+              <h3 className="text-xl text-white/90 group-hover:text-white">
+                {item.deskripsi}
+              </h3>
             </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
+            <div className="pt-0 p-4 md:p-6">
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
+                Booking Sekarang !
+                <svg
+                  className="shrink-0 size-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"></path>
+                </svg>
+              </div>
             </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-        <a
-          className="group  h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg bg-[url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80')] transition"
-          href="/">
-          <div className="flex-auto p-4 md:p-6">
-            <h3 className="text-xl text-white/90 group-hover:text-white">
-              <span className="font-bold">Preline</span> Press publishes books
-              about economic and technological advancement.
-            </h3>
-          </div>
-          <div className="pt-0 p-4 md:p-6">
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-white/70">
-              Visit the site
-              <svg
-                className="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m9 18 6-6-6-6"></path>
-              </svg>
-            </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        ))}
+      </d>
     </div>
   );
 }

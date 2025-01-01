@@ -1,4 +1,71 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 function Reservasi() {
+  const [armada, setArmada] = useState([]); // State untuk menyimpan data armada
+  const [selectedArmada, setSelectedArmada] = useState(""); // State untuk menyimpan armada yang dipilih
+  const [name, setName] = useState(""); // State untuk menyimpan nama
+  const [email, setEmail] = useState(""); // State untuk menyimpan email
+  const [phone, setPhone] = useState(""); // State untuk menyimpan nomor telepon
+  const [message, setMessage] = useState(""); // State untuk menyimpan pesan
+  const [loading, setLoading] = useState(true); // State untuk status loading
+  const [error, setError] = useState(null); // State untuk menyimpan error jika ada
+
+  // Mengambil data dari API saat komponen pertama kali dimuat
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/get/armada") // Ganti dengan URL API-mu
+      .then((response) => {
+        if (response.data.status === "success") {
+          setArmada(response.data.data); // Set data armada ke state
+        }
+      })
+      .catch((err) => {
+        setError(err.message); // Simpan error jika ada
+      })
+      .finally(() => {
+        setLoading(false); // Selesai loading
+      });
+  }, []); // Kosongkan array dependencies untuk memanggil hanya sekali saat pertama kali dimuat
+
+  // Jika data masih loading
+  if (loading) return <p>Loading...</p>;
+
+  // Jika ada error
+  if (error) return <p>Error: {error}</p>;
+
+  // Fungsi untuk menangani submit form
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Mencegah reload halaman
+
+    // Data yang akan dikirimkan
+    const formData = {
+      name,
+      email,
+      phone,
+      armada: selectedArmada,
+      message,
+    };
+
+    // Mengirim data ke API
+    axios
+      .post("http://localhost:8000/api/post/reservasi", formData) // Ganti dengan URL API-mu untuk submit form
+      .then((response) => {
+        if (response.data.status === "success") {
+          alert("Form submitted successfully!");
+          // Reset form setelah submit berhasil
+          setName("");
+          setEmail("");
+          setPhone("");
+          setMessage("");
+          setSelectedArmada("");
+        }
+      })
+      .catch((err) => {
+        setError(err.message); // Menangani error jika submit gagal
+      });
+  };
+
   return (
     <>
       <section className="bg-gray-100 pt-20">
@@ -6,18 +73,10 @@ function Reservasi() {
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             <div className="lg:col-span-2 lg:py-12">
               <p className="max-w-xl text-lg font-light text-start">
-                Halaman reservasi online ini memungkinkan calon pelanggan untuk
-                dengan mudah mengisi formulir pemesanan rental mobil secara
-                langsung melalui website. Formulir ini mencakup informasi
-                penting seperti pilihan jenis mobil, tanggal dan waktu
-                peminjaman, serta data kontak pelanggan. Setelah formulir
-                disubmit, informasi reservasi akan diterima oleh pihak
-                Puzallarentcar, yang kemudian akan menghubungi pelanggan melalui
-                WhatsApp untuk konfirmasi pemesanan dan memberikan rincian lebih
-                lanjut terkait proses rental. Sistem ini dirancang untuk
-                memberikan kenyamanan, efisiensi, dan aksesibilitas bagi
-                pelanggan dalam melakukan pemesanan, serta memastikan komunikasi
-                yang cepat dan langsung dengan penyedia layanan.
+                Pesan mobil sewaan Anda sekarang dan nikmati perjalanan yang
+                nyaman dan aman bersama kami. <br /> <br />
+                Isi form di samping untuk melakukan pemesanan atau hubungi
+                melalui whatsapp.
               </p>
 
               <div className="mt-8">
@@ -35,16 +94,18 @@ function Reservasi() {
             </div>
 
             <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form action="/" className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="sr-only" htmlFor="name">
-                    Name
+                    Nama
                   </label>
                   <input
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Name"
+                    placeholder="Nama"
                     type="text"
                     id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)} // Menangani perubahan input
                   />
                 </div>
 
@@ -55,9 +116,11 @@ function Reservasi() {
                     </label>
                     <input
                       className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                      placeholder="Email address"
+                      placeholder="Alamat Email (jika ada)"
                       type="email"
                       id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)} // Menangani perubahan input
                     />
                   </div>
 
@@ -70,73 +133,47 @@ function Reservasi() {
                       placeholder="Phone Number"
                       type="tel"
                       id="phone"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)} // Menangani perubahan input
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
-                  <div>
-                    <label
-                      htmlFor="Option1"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0">
-                      <input
-                        className="sr-only"
-                        id="Option1"
-                        type="radio"
-                        tabIndex="-1"
-                        name="option"
-                      />
-
-                      <span className="text-sm"> Option 1 </span>
-                    </label>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="Option2"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0">
-                      <input
-                        className="sr-only"
-                        id="Option2"
-                        type="radio"
-                        tabIndex="-1"
-                        name="option"
-                      />
-
-                      <span className="text-sm"> Option 2 </span>
-                    </label>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="Option3"
-                      className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                      tabIndex="0">
-                      <input
-                        className="sr-only"
-                        id="Option3"
-                        type="radio"
-                        tabIndex="-1"
-                        name="option"
-                      />
-
-                      <span className="text-sm"> Option 3 </span>
-                    </label>
-                  </div>
+                {/* Dropdown Armada */}
+                <div>
+                  <label
+                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="armadaDropdown"></label>
+                  <select
+                    id="armadaDropdown"
+                    name="armada"
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    value={selectedArmada}
+                    onChange={(e) => setSelectedArmada(e.target.value)} // Menangani perubahan input
+                  >
+                    <option value="">Pilih Armada</option>
+                    {/* Loop melalui data armada yang didapat dari API */}
+                    {armada.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.nama}
+                        {/* Ganti sesuai dengan nama atau field yang ada pada data */}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
                   <label className="sr-only" htmlFor="message">
                     Message
                   </label>
-
                   <textarea
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Message"
+                    placeholder="Masukkan pesan Anda"
                     rows="8"
-                    id="message"></textarea>
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)} // Menangani perubahan input
+                  ></textarea>
                 </div>
 
                 <div className="mt-4">

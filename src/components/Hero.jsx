@@ -32,7 +32,7 @@ function Hero() {
             rent a car and tour now !
           </h2>
 
-          <div className="sm:flex gap-2 sm:space-y-0 space-y-7 justify-center py-5 gap-x-10">
+          {/* <div className="sm:flex gap-2 sm:space-y-0 space-y-7 justify-center py-5 gap-x-10">
             <label
               htmlFor="UserEmail"
               className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-white focus-within:ring-1 ">
@@ -89,7 +89,7 @@ function Hero() {
                 Date
               </span>
             </label>
-          </div>
+          </div> */}
 
           <div className="mt-4 sm:mt-8">
             <a

@@ -1,4 +1,4 @@
-import { Rating } from "@material-tailwind/react";
+// import { Rating } from "@material-tailwind/react";
 
 function InputTesti() {
   return (
@@ -13,7 +13,7 @@ function InputTesti() {
               <form action="/" className="space-y-4">
                 <div className="flex gap-0.5">
                   <div>
-                    <Rating></Rating>
+                    {/* <Rating value={4} />; */}
                     <input
                       className="sr-only peer"
                       type="radio"

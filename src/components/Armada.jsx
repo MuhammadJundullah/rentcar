@@ -44,7 +44,7 @@ function Armada() {
       </div>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-10 py-20 overflow-x-auto">
-        {armada.map((item) => (
+        {armada.slice(0, 3).map((item, index) => (
           <article
             key={item.id}
             className="flex bg-white transition hover:shadow-xl">
