@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
 function ArmadaAll() {
   const [armada, setArmada] = useState([]);
@@ -22,7 +23,7 @@ function ArmadaAll() {
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading></Loading>;
 
   if (error) return <p>Error: {error}</p>;
 

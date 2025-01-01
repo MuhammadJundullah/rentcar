@@ -6,6 +6,7 @@ import Stats from "../components/Stats";
 import Aktivitas from "../components/Aktivitas";
 import Testimonial from "../components/Testimonial";
 import InputTesti from "../components/InputTesti";
+import Loading from "../components/Loading";
 
 function Home() {
   return (

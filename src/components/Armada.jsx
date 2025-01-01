@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
 function Armada() {
   const [armada, setArmada] = useState([]);
@@ -24,7 +25,7 @@ function Armada() {
   }, []);
 
   // Jika data masih loading
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
   // Jika ada error
   if (error) return <p>Error: {error}</p>;

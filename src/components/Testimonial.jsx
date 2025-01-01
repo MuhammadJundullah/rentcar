@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
 import { useState } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
 function Testimonial() {
   const [ulasan, setUlasan] = useState([]);
@@ -82,7 +83,7 @@ function Testimonial() {
   }, [loading, error]);
 
   // Tampilkan Loading dan Error di bagian bawah hooks
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error}</p>;
   return (
     <div>

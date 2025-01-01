@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
 function Reservasi() {
   const [armada, setArmada] = useState([]); // State untuk menyimpan data armada
@@ -30,7 +31,7 @@ function Reservasi() {
   }, []); // Kosongkan array dependencies untuk memanggil hanya sekali saat pertama kali dimuat
 
   // Jika data masih loading
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
   // Jika ada error
   if (error) return <p>Error: {error}</p>;
