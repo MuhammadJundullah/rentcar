@@ -7,6 +7,7 @@ function Reservasi() {
   const [name, setName] = useState(""); // State untuk menyimpan nama
   const [email, setEmail] = useState(""); // State untuk menyimpan email
   const [phone, setPhone] = useState(""); // State untuk menyimpan nomor telepon
+  const [tanggal, setTanggal] = useState(""); // State untuk menyimpan nomor telepon
   const [message, setMessage] = useState(""); // State untuk menyimpan pesan
   const [loading, setLoading] = useState(true); // State untuk status loading
   const [error, setError] = useState(null); // State untuk menyimpan error jika ada
@@ -43,6 +44,7 @@ function Reservasi() {
       name,
       email,
       phone,
+      tanggal,
       armada: selectedArmada,
       message,
     };
@@ -51,6 +53,7 @@ function Reservasi() {
     axios
       .post("http://localhost:8000/api/post/reservasi", formData) // Ganti dengan URL API-mu untuk submit form
       .then((response) => {
+        console.log(response);
         if (response.data.status === "success") {
           alert("Form submitted successfully!");
           // Reset form setelah submit berhasil
@@ -125,6 +128,20 @@ function Reservasi() {
                   </div>
 
                   <div>
+                    <label className="sr-only" htmlFor="email">
+                      Tanggal
+                    </label>
+                    <input
+                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      placeholder="Tanggal"
+                      type="date"
+                      id="tanggal"
+                      value={tanggal}
+                      onChange={(e) => setTanggal(e.target.value)} // Menangani perubahan input
+                    />
+                  </div>
+
+                  <div>
                     <label className="sr-only" htmlFor="phone">
                       Phone
                     </label>
@@ -154,7 +171,7 @@ function Reservasi() {
                     <option value="">Pilih Armada</option>
                     {/* Loop melalui data armada yang didapat dari API */}
                     {armada.map((item) => (
-                      <option key={item.id} value={item.id}>
+                      <option key={item.id} value={item.nama}>
                         {item.nama}
                         {/* Ganti sesuai dengan nama atau field yang ada pada data */}
                       </option>
