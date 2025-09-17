@@ -32,65 +32,6 @@ function Hero() {
             rent a car and tour now !
           </h2>
 
-          {/* <div className="sm:flex gap-2 sm:space-y-0 space-y-7 justify-center py-5 gap-x-10">
-            <label
-              htmlFor="UserEmail"
-              className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-white focus-within:ring-1 ">
-              <input
-                type="email"
-                id="UserEmail"
-                placeholder="Lokasi"
-                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-white"
-              />
-
-              <span className="absolute start-3 top-3 -translate-y-1/2 text-xs transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs text-white">
-                Lokasi
-              </span>
-            </label>
-            <label
-              htmlFor="UserEmail"
-              className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-white focus-within:ring-1 ">
-              <input
-                type="email"
-                id="UserEmail"
-                placeholder="Mobil"
-                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-white"
-              />
-
-              <span className="absolute start-3 top-3 -translate-y-1/2 text-xs  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs text-white">
-                Mobil
-              </span>
-            </label>
-            <label
-              htmlFor="UserEmail"
-              className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-white focus-within:ring-1 ">
-              <input
-                type="email"
-                id="UserEmail"
-                placeholder="Whatsapp"
-                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-white"
-              />
-
-              <span className="absolute start-3 top-3 -translate-y-1/2 text-xs  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs text-white">
-                Whatsapp
-              </span>
-            </label>
-            <label
-              htmlFor="UserEmail"
-              className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-white focus-within:ring-1 ">
-              <input
-                type="date"
-                id="UserEmail"
-                placeholder="tanggal"
-                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-white"
-              />
-
-              <span className="absolute start-3 top-3 -translate-y-1/2 text-xs  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs text-white">
-                Date
-              </span>
-            </label>
-          </div> */}
-
           <div className="mt-4 sm:mt-8">
             <a
               href="/"

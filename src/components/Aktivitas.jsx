@@ -7,9 +7,11 @@ function Aktivitas() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const apiurl = process.env.API_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get/aktivitas")
+      .get(`${apiurl}/api/get/aktivitas`)
       .then((response) => {
         if (response.data.status === "success") {
           setAktivitas(response.data.data);
@@ -21,7 +23,7 @@ function Aktivitas() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [apiurl]);
 
   // Jika data masih loading
   if (loading) return <Loading />;

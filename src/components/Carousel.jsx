@@ -1,10 +1,7 @@
-import React from "react";
 import { useInView } from "react-intersection-observer"; // Import hook intersection observer
 import { useSpring, animated } from "@react-spring/web";
 
 function Carousel() {
-  // const [inView, setInView] = useState(false);
-
   // Intersection Observer hook untuk mendeteksi elemen yang masuk viewport
   const { ref, inView: isInView } = useInView({
     triggerOnce: true, // Animasi hanya dijalankan sekali

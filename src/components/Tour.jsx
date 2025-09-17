@@ -6,10 +6,11 @@ function Tour() {
   const [Tour, setTour] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiurl = process.env.API_URL;
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get/tour")
+      .get(`${apiurl}/api/get/tour`)
       .then((response) => {
         if (response.data.status === "success") {
           console.log(response.data.data);
@@ -22,7 +23,7 @@ function Tour() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [apiurl]);
 
   // Jika data masih loading
   if (loading) return <Loading></Loading>;
@@ -56,7 +57,7 @@ function Tour() {
             key={index}
             className={`group h-96 relative flex flex-col w-full min-h-60 bg-center bg-cover rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg transition`}
             style={{
-              backgroundImage: `url('http://localhost:8000/storage/${item.foto}')`,
+              backgroundImage: `url('${apiurl}/storage/${item.foto}')`,
             }}
             href="/reservasi-online">
             <div className="flex-auto p-4 md:p-6">

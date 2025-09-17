@@ -7,10 +7,12 @@ function Armada() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const apiurl = process.env.API_URL;
+
   useEffect(() => {
     // Ambil data dari API
     axios
-      .get("http://localhost:8000/api/get/armada") // Ganti dengan URL API-mu
+      .get(`${apiurl}/api/get/armada`)
       .then((response) => {
         if (response.data.status === "success") {
           setArmada(response.data.data); // Set data ke state
@@ -22,7 +24,7 @@ function Armada() {
       .finally(() => {
         setLoading(false); // Selesai loading
       });
-  }, []);
+  }, [apiurl]);
 
   // Jika data masih loading
   if (loading) return <Loading />;
@@ -52,7 +54,7 @@ function Armada() {
             <div className="hidden sm:block sm:basis-56">
               <img
                 alt={item.nama}
-                src={`http://localhost:8000/storage/${item.foto}`}
+                src={`${apiurl}/storage/${item.foto}`}
                 className="my-10"
               />
             </div>

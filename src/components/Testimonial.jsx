@@ -10,9 +10,11 @@ function Testimonial() {
   const [error, setError] = useState(null);
   const sliderInstance = useRef(null);
 
+  const apiurl = process.env.API_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get/ulasan")
+      .get(`${apiurl}/api/get/ulasan`)
       .then((response) => {
         if (response.data.status === "success") {
           setUlasan(response.data.data);
@@ -26,7 +28,7 @@ function Testimonial() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [apiurl]);
 
   useEffect(() => {
     if (loading || error) return; // Jangan jalankan KeenSlider jika masih loading atau ada error

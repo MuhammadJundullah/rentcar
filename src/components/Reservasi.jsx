@@ -13,10 +13,12 @@ function Reservasi() {
   const [loading, setLoading] = useState(true); // State untuk status loading
   const [error, setError] = useState(null); // State untuk menyimpan error jika ada
 
+  const apiurl = process.env.API_URL;
+
   // Mengambil data dari API saat komponen pertama kali dimuat
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get/armada") // Ganti dengan URL API-mu
+      .get(`${apiurl}/api/get/armada`) // Ganti dengan URL API-mu
       .then((response) => {
         if (response.data.status === "success") {
           setArmada(response.data.data); // Set data armada ke state
@@ -28,7 +30,7 @@ function Reservasi() {
       .finally(() => {
         setLoading(false); // Selesai loading
       });
-  }, []); // Kosongkan array dependencies untuk memanggil hanya sekali saat pertama kali dimuat
+  }, [apiurl]); // Kosongkan array dependencies untuk memanggil hanya sekali saat pertama kali dimuat
 
   // Jika data masih loading
   if (loading) return <Loading />;

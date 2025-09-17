@@ -7,9 +7,11 @@ function ArmadaAll() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const apiurl = process.env.API_URL;
+
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get/armada")
+      .get(`${apiurl}/api/get/armada`)
       .then((response) => {
         if (response.data.status === "success") {
           setArmada(response.data.data);
@@ -21,7 +23,7 @@ function ArmadaAll() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [apiurl]);
 
   if (loading) return <Loading></Loading>;
 
@@ -50,7 +52,7 @@ function ArmadaAll() {
               <div className="hidden sm:block sm:basis-56">
                 <img
                   alt={item.nama}
-                  src={`http://localhost:8000/storage/${item.foto}`}
+                  src={`${apiurl}/${item.foto}`}
                   className="my-10"
                 />
               </div>
